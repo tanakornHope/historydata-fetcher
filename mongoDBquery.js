@@ -105,7 +105,7 @@ function mongodb_connect() {
 console.log(queryCommand);
 
 async function main() {
-    await mongodb_connect();
+    //await mongodb_connect();
 
     expressInstance.post('/dataHistory/daily',(req, res) => {
         // req.body returned as JSON format.
