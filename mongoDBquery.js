@@ -114,6 +114,8 @@ async function main() {
 
         console.log(firstDate);
         console.log(lastDate);
+
+        res.end(firstDate);
         
         /* queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
         queryCommand.query[1].$match.timeStamp.$lte = new Date(lastDate);
