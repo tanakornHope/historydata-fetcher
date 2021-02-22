@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 expressInstance.use(bodyParser.urlencoded({ extended: true }));
 expressInstance.use(bodyParser.json());
 
-expressInstance.post('/dataHistory/daily',(req, res) => {
+/* expressInstance.post('/dataHistory/daily',(req, res) => {
     var firstDate = new Date(req.body.firstdate);
     var lastDate = new Date(req.body.lastdate);
 
@@ -19,9 +19,9 @@ expressInstance.post('/dataHistory/daily',(req, res) => {
 
 expressInstance.listen(process.env.PORT || 3000,() => {
     console.log("Listening on Port ${PORT}");
-});
+}); */
 
-/* var mongooseSchema = new mongoose.Schema({
+var mongooseSchema = new mongoose.Schema({
     timeStamp: Date,
     MQTTbroker: { online: Boolean },
     server: { online: Boolean },
@@ -155,8 +155,8 @@ async function main() {
     });
     
     expressInstance.listen(process.env.PORT || 3000,() => {
-        console.log("Started on PORT 8005");
-    })
+        console.log("Listening on Port ${PORT}");
+    });
 }
 
-main(); */
+main();
