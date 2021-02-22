@@ -4,9 +4,8 @@ const queryCommand = require('./queryStore.js');
 const expressInstance = express();
 const mongoose = require('mongoose');
 
-/* expressInstance.use(bodyParser.urlencoded({ extended: true }));
-expressInstance.use(bodyParser.json()); */
-expressInstance.use(express.json());
+expressInstance.use(bodyParser.urlencoded({ extended: true }));
+expressInstance.use(bodyParser.json());
 
 expressInstance.post('/dataHistory/daily',(req, res) => {
     var firstDate = new Date(req.body.firstdate);
