@@ -11,8 +11,12 @@ expressInstance.use(express.json());
 expressInstance.post('/dataHistory/daily',(req, res) => {
     var firstDate = new Date(req.body.firstdate);
     var lastDate = new Date(req.body.lastdate);
-    res.end(firstDate);
-}
+    res.send(firstDate);
+});
+
+expressInstance.listen(process.env.PORT || 3000,() => {
+    console.log("Listening on Port ${PORT}");
+});
 
 /* var mongooseSchema = new mongoose.Schema({
     timeStamp: Date,
