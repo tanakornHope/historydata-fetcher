@@ -115,7 +115,7 @@ async function main() {
         console.log(firstDate);
         console.log(lastDate);
         
-        queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
+        /* queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
         queryCommand.query[1].$match.timeStamp.$lte = new Date(lastDate);
 
         console.log(queryCommand.query[1].$match.timeStamp.$gte);
@@ -125,10 +125,8 @@ async function main() {
             console.log(data);
             //res.send(data);
             res.send(data);
-        });
-        /* MongooseModel.find({}).exec((err, data)=>{
-            console.log(data);
         }); */
+        
         
     });
     
