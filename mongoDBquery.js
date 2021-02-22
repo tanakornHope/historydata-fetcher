@@ -83,16 +83,7 @@ var MongooseModel = mongoose.model("iotdeviceData", mongooseSchema);
 
 function mongodb_connect() {
     return new Promise(function (resolve, reject) {
-        mongoose.connect('mongodb://localhost:27017/finalproject', {
-            useNewUrlParser: true,
-            user: "",
-            pass: "",
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-            authSource: "admin"
-        }, function (error) {
-            //resolve(console.log("mongoDB error:",error));
-        });
+        mongoose.connect('mongodb+srv://thanakorn:5617091@cluster0.ljv90.mongodb.net/finalproject',{ useNewUrlParser: true, useUnifiedTopology: true });
         mongoDBconnection = mongoose.connection;
 
         mongoDBconnection.on("error", function (msg) {
@@ -119,7 +110,7 @@ function mongodb_connect() {
 console.log(queryCommand);
 
 async function main() {
-    //await mongodb_connect();
+    await mongodb_connect();
 
     expressInstance.post('/dataHistory/daily',(req, res) => {
         // req.body returned as JSON format.
@@ -128,8 +119,6 @@ async function main() {
 
         console.log(firstDate);
         console.log(lastDate);
-
-        res.end(firstDate);
         
         queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
         queryCommand.query[1].$match.timeStamp.$lte = new Date(lastDate);
