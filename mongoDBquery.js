@@ -117,34 +117,55 @@ async function main() {
         var firstDate = new Date(req.body.firstdate);
         var lastDate = new Date(req.body.lastdate);
 
+        console.log("Daily");
         console.log(firstDate);
         console.log(lastDate);
         
-        queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
-        queryCommand.query[1].$match.timeStamp.$lte = new Date(lastDate);
+        queryCommand.dailyQuery[1].$match.timeStamp.$gte = new Date(firstDate);
+        queryCommand.dailyQuery[1].$match.timeStamp.$lte = new Date(lastDate);
 
-        console.log(queryCommand.query[1].$match.timeStamp.$gte);
-        console.log(queryCommand.query[1].$match.timeStamp.$lte);
-        MongooseModel.aggregate(queryCommand.query).exec((err, data)=>{
-            //var a = dayjs(data[0].first.timeStamp).tz("Asia/Bangkok").format();
+        MongooseModel.aggregate(queryCommand.dailyQuery).exec((err, data)=>{
             console.log(data);
-            //res.send(data);
             res.send(data);
         });
-        
-        
     });
     
     expressInstance.post('/dataHistory/monthly',(req, res) => {
-    
+        var firstDate = new Date(req.body.firstdate);
+        var lastDate = new Date(req.body.lastdate);
+
+        console.log("Monthly");
+        console.log(firstDate);
+        console.log(lastDate);
+
+        queryCommand.monthlyQuery[1].$match.timeStamp.$gte = new Date(firstDate);
+        queryCommand.monthlyQuery[1].$match.timeStamp.$lte = new Date(lastDate);
+
+        MongooseModel.aggregate(queryCommand.monthlyQuery).exec((err, data)=>{
+            console.log(data);
+            res.send(data);
+        });
     });
     
     expressInstance.post('/dataHistory/yearly',(req, res) => {
-    
+        var firstDate = new Date(req.body.firstdate);
+        var lastDate = new Date(req.body.lastdate);
+
+        console.log("Yearly");
+        console.log(firstDate);
+        console.log(lastDate);
+
+        queryCommand.yearlyQuery[1].$match.timeStamp.$gte = new Date(firstDate);
+        queryCommand.yearlyQuery[1].$match.timeStamp.$lte = new Date(lastDate);
+
+        MongooseModel.aggregate(queryCommand.yearlyQuery).exec((err, data)=>{
+            console.log(data);
+            res.send(data);
+        });
     });
     
     expressInstance.listen(process.env.PORT || 3000,() => {
-        console.log("Listening on Port ${PORT}");
+        console.log("Listening on Port 3000");
     });
 }
 
