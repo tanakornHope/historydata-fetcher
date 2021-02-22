@@ -140,7 +140,7 @@ async function main() {
     
     });
     
-    expressInstance.listen(8005,() => {
+    expressInstance.listen(process.env.PORT,() => {
         console.log("Started on PORT 8005");
     })
 }
