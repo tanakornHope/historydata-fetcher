@@ -4,10 +4,17 @@ const queryCommand = require('./queryStore.js');
 const expressInstance = express();
 const mongoose = require('mongoose');
 
-expressInstance.use(bodyParser.urlencoded({ extended: true }));
-expressInstance.use(bodyParser.json());
+/* expressInstance.use(bodyParser.urlencoded({ extended: true }));
+expressInstance.use(bodyParser.json()); */
+expressInstance.use(express.json());
 
-var mongooseSchema = new mongoose.Schema({
+expressInstance.post('/dataHistory/daily',(req, res) => {
+    var firstDate = new Date(req.body.firstdate);
+    var lastDate = new Date(req.body.lastdate);
+    res.end(firstDate);
+}
+
+/* var mongooseSchema = new mongoose.Schema({
     timeStamp: Date,
     MQTTbroker: { online: Boolean },
     server: { online: Boolean },
@@ -117,7 +124,7 @@ async function main() {
 
         res.end(firstDate);
         
-        /* queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
+        queryCommand.query[1].$match.timeStamp.$gte = new Date(firstDate);
         queryCommand.query[1].$match.timeStamp.$lte = new Date(lastDate);
 
         console.log(queryCommand.query[1].$match.timeStamp.$gte);
@@ -127,7 +134,7 @@ async function main() {
             console.log(data);
             //res.send(data);
             res.send(data);
-        }); */
+        });
         
         
     });
@@ -145,4 +152,4 @@ async function main() {
     })
 }
 
-main();
+main(); */
