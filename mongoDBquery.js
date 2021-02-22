@@ -11,6 +11,10 @@ expressInstance.use(express.json());
 expressInstance.post('/dataHistory/daily',(req, res) => {
     var firstDate = new Date(req.body.firstdate);
     var lastDate = new Date(req.body.lastdate);
+
+    console.log(firstDate);
+    console.log(lastDate);
+
     res.send(firstDate);
 });
 
