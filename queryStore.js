@@ -15,7 +15,7 @@ const dailyQuery = [
     },
     {
         "$group":{
-            "_id":{"$dayOfMonth":"$timeStamp"},
+            "_id":{"$dayOfWeek":"$timeStamp"},
             "first":{"$first":"$$ROOT"},
             "last":{"$last":"$$ROOT"}
         }
