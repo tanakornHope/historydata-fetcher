@@ -1,16 +1,18 @@
 {
   "name": "airconcontrollerrequest",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "fortestquerydata",
-  "main": "mongoDBquery.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node mongoDBquery.js",
+    "start": "nodemon mongoDBquery.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "thanakorn khunkhao",
   "license": "ISC",
   "dependencies": {
     "body-parser": "",
+    "cjs-loader": "^0.1.0",
     "express": "",
     "mongoose": ""
   }
