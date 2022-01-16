@@ -11,6 +11,7 @@
   "author": "thanakorn khunkhao",
   "license": "ISC",
   "dependencies": {
+    "apicache": "^1.6.3",
     "body-parser": "",
     "cjs-loader": "^0.1.0",
     "express": "",

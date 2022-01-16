@@ -1,12 +1,14 @@
 import express from "express";
 import queryCommand from "./queryStore.js";
 import mongoose from "mongoose";
+import apicache from "apicache";
 import mongooseSchema from "./schema/FinalProject.schema.js";
-
-import historiesRouter from "./route/histories/Histories.route.js"; 
+import historiesRouter from "./route/histories/Histories.route.js";
 
 const app = express();
-app.use(express.urlencoded());
+const cache = apicache.middleware; // we have to put Cache-Control into header.
+app.use(cache('5 minutes'));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // var MongooseModel = mongoose.model("iotdeviceData", mongooseSchema);
@@ -36,7 +38,11 @@ mongoDBconnection.on("reconnect", () => {
   console.log("mongodb is reconnecting.");
 });
 
-app.get("/api/v2/histories", historiesRouter);
+app.use("/api/v2/histories", historiesRouter);
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Listening on Port 3000");
+});
 
 /* expressInstance.post('/dataHistory/daily',(req, res) => {
     var firstDate = new Date(req.body.firstdate);

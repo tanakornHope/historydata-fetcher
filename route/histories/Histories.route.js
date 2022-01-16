@@ -1,7 +1,10 @@
 import express from "express";
 const router = express.Router();
 
-console.log("get histories.");
-router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+    console.log("get histories.");
+    console.log(req.query);
+    res.end();
+});
 
 export default router;
