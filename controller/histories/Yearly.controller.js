@@ -1,7 +1,9 @@
-export function inquiryHistoriesByYearly() {
+import * as YearlyHistoryService from "../../service/histories/Yearly.service.js";
 
-}
-
-export function inquiryHistoriesByYearly2() {
-
+export async function inquiryHistoriesByYearlyController(req, res) {
+  try {
+    let result = await YearlyHistoryService.inquiryHistoriesByYearlyService(req, res);
+  } catch (error) {
+    // do something.
+  }
 }

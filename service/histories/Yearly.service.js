@@ -1,9 +1,10 @@
-import express from "express";
-const router = express.Router();
+export async function inquiryHistoriesByYearlyService (req, res) {
+    // do something.
+    console.log("inquiryHistoriesByYearlyService");
+    console.log(req.query);
+    res.end();
+}
 
-router.get("/", (req, res) => {
-  console.log(req.query);
-  res.end();
-});
-
-export default router;
+export async function deleteHistoriesByYearlyService () {
+    // do something.
+}

@@ -1,8 +1,11 @@
 import express from "express";
-import { inquiryHistoriesByYearly } from "../../controller/histories/Yearly.controller.js";
+import * as YearlyHistoryController from "../../controller/histories/Yearly.controller.js";
 const router = express.Router();
 
-router.get("/yearly", inquiryHistoriesByYearly);
+router.get(
+  "/yearly",
+  YearlyHistoryController.inquiryHistoriesByYearlyController
+);
 
 router.get("/monthly", (req, res) => {
   console.log("get histories monthly.");
