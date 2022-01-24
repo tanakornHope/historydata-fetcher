@@ -15,6 +15,7 @@
     "body-parser": "",
     "cjs-loader": "^0.1.0",
     "express": "",
+    "joi": "^17.5.0",
     "mongoose": ""
   },
   "devDependencies": {
