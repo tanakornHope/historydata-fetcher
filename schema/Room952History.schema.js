@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const mongooseSchema = new mongoose.Schema({
+const room952HistorySchema = new mongoose.Schema({
   timeStamp: Date,
   MQTTbroker: { online: Boolean },
   server: { online: Boolean },
@@ -58,4 +58,4 @@ const mongooseSchema = new mongoose.Schema({
   ],
 });
 
-export default { mongooseSchema };
+export default room952HistorySchema;

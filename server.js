@@ -2,7 +2,7 @@ import express from "express";
 import queryCommand from "./queryStore.js";
 import mongoose from "mongoose";
 import apicache from "apicache";
-import mongooseSchema from "./schema/FinalProject.schema.js";
+import room952HistorySchema from "./schema/Room952History.schema.js";
 import historiesRouter from "./route/histories/Histories.route.js";
 
 const app = express();

@@ -16,7 +16,8 @@
     "cjs-loader": "^0.1.0",
     "express": "",
     "joi": "^17.5.0",
-    "mongoose": ""
+    "mongoose": "",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "eslint": "^8.7.0"
