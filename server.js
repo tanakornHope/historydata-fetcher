@@ -7,7 +7,7 @@ import historiesRouter from "./route/histories/Histories.route.js";
 
 const app = express();
 const cache = apicache.middleware; // we have to put Cache-Control into header.
-app.use(cache('5 minutes'));
+app.use(cache("5 minutes"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -24,6 +24,7 @@ mongoDBconnection.on("error", (msg) => {
 });
 mongoDBconnection.on("connected", () => {
   console.log("mongoDB is connected.");
+  initExpress();
 });
 mongoDBconnection.on("reconnectFailed", () => {
   console.log("mongoDB reconnect is failed.");
@@ -38,11 +39,13 @@ mongoDBconnection.on("reconnect", () => {
   console.log("mongodb is reconnecting.");
 });
 
-app.use("/api/v2/histories", historiesRouter);
+const initExpress = () => {
+  app.use("/api/v2/histories", historiesRouter);
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Listening on Port 3000");
-});
+  app.listen(process.env.PORT || 3000, () => {
+    console.log("Listening on Port 3000");
+  });
+};
 
 /* expressInstance.post('/dataHistory/daily',(req, res) => {
     var firstDate = new Date(req.body.firstdate);

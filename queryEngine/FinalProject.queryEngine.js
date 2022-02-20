@@ -6,15 +6,19 @@ const room952HistoryModel = mongoose.model(
   room952HistorySchema
 );
 
-export async function yearlyQueryEngine(req) {
+export async function yearlyQueryEngine(req, res) {
   let { firstDate, lastDate } = req.query;
   console.log(firstDate);
   console.log(lastDate);
-  /* try {
-        let {firstDate, lastDate} = queryParams;
-        room952HistoryModel.find({});
+
+  try {
+    const yearlyDataResult = await room952HistoryModel.find({}).limit(5);
+    // console.log(yearlyDataResult);
+    if(firstDate === "00") {
+      throw({"prayut":"huakuy"});
     }
-    catch (error) {
-        throw (error);
-    } */
+  } catch (e) {
+    console.log(e);
+    res.status(500);
+  }
 }
