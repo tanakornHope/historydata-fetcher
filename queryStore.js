@@ -108,21 +108,19 @@ const yearlyQuery = [
     },
   },
   {
-    $group: {
-      _id: {
-        $year: "$timeStamp",
-      },
-      first: {
-        $first: "$$ROOT",
-      },
-      last: {
-        $last: "$$ROOT",
-      },
+    $sort: {
+      timeStamp: 1,
     },
   },
   {
-    $sort: {
-      "first.timeStamp": 1,
+    $group: {
+      _id: null,
+      firstData: {
+        $first: "$$ROOT",
+      },
+      lastData: {
+        $last: "$$ROOT",
+      },
     },
   },
 ];

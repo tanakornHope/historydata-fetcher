@@ -13,7 +13,7 @@ export async function yearlyQueryEngine(req, res) {
 
   try {
     const yearlyDataResult = await room952HistoryModel.find({}).limit(5);
-    // console.log(yearlyDataResult);
+    console.log(yearlyDataResult);
     if(firstDate === "00") {
       throw({"prayut":"huakuy"});
     }
