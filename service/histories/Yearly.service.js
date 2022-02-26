@@ -4,7 +4,6 @@ export async function inquiryHistoriesByYearlyService (req, res) {
     // do something.
     // let {firstDate, lastDate} = req.query;
     FinalProjectQueryEngine.yearlyQueryEngine(req, res);
-    res.end();
 }
 
 export async function deleteHistoriesByYearlyService () {
