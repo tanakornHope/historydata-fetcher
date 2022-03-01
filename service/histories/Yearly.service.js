@@ -3,7 +3,8 @@ import * as FinalProjectQueryEngine from "../../queryEngine/FinalProject.queryEn
 export async function inquiryHistoriesByYearlyService (req, res) {
     // do something.
     // let {firstDate, lastDate} = req.query;
-    FinalProjectQueryEngine.yearlyQueryEngine(req, res);
+    let result = FinalProjectQueryEngine.yearlyQueryEngine(req, res);
+    console.log(result);
 }
 
 export async function deleteHistoriesByYearlyService () {

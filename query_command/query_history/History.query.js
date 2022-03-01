@@ -1,4 +1,4 @@
-const getHistoryQuery = async (firstDate, lastDate) => {
+const getHistoryQuery = async ({ firstDate, lastDate }) => {
   return [
     {
       $project: {

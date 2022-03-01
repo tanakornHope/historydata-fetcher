@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import room952HistorySchema from "../schema/Room952History.schema.js";
-import queryCommand from "../query_command/query_history/History.query.js"
+import queryCommand from "../query_command/query_history/History.query.js";
 
 const room952HistoryModel = mongoose.model(
   "iotdevicedatas",
@@ -16,13 +16,14 @@ export async function yearlyQueryEngine(req, res) {
   $lte: new Date("2021-01-01T00:00:00.000+07:00") */
 
   try {
-    console.log(JSON.stringify(await queryCommand.getHistoryQuery(firstDate, lastDate)));
-    const yearlyDataResult = await room952HistoryModel.aggregate(await queryCommand.getHistoryQuery(firstDate, lastDate));
-    console.log(yearlyDataResult);
-    res.send(yearlyDataResult);
-    if(firstDate === "00") {
-      throw({"prayut":"huakuy"});
-    }
+    console.log(
+      JSON.stringify(await queryCommand.getHistoryQuery(firstDate, lastDate))
+    );
+    const yearlyDataResult = await room952HistoryModel.aggregate(
+      await queryCommand.getHistoryQuery({ firstDate, lastDate })
+    );
+
+    return yearlyDataResult;
   } catch (e) {
     /* console.log(e);
     res.status(500); */
